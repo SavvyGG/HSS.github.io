@@ -1,0 +1,76 @@
+:root {
+  --primary:#2a7c6f; --primary-light:#3a9d8e; --primary-dark:#1d5a50;
+  --accent:#e8a838;
+  --bg:#f4f7f6; --bg-alt:#eaf0ef;
+  --surface:#fff; --surface2:#f0f5f4;
+  --text:#1a2e2b; --text-mid:#4a6360; --text-muted:#8aaba7;
+  --border:#d8e8e6;
+  --shadow-sm:0 2px 8px rgba(42,124,111,.08);
+  --shadow-md:0 6px 24px rgba(42,124,111,.12);
+  --shadow-lg:0 16px 48px rgba(42,124,111,.18);
+  --radius-sm:10px; --radius-md:16px; --radius-lg:24px; --radius-xl:32px;
+  --font:'Plus Jakarta Sans',sans-serif; --font-serif:'Lora',serif;
+  --nav-h:68px; --tr:all .25s cubic-bezier(.4,0,.2,1);
+}
+[data-theme="dark"] {
+  --bg:#0f1e1c; --bg-alt:#162320;
+  --surface:#1a2e2b; --surface2:#1f3532;
+  --text:#e8f2f0; --text-mid:#9abdb9; --text-muted:#5a8a84;
+  --border:#2a4542;
+  --shadow-sm:0 2px 8px rgba(0,0,0,.3);
+  --shadow-md:0 6px 24px rgba(0,0,0,.4);
+  --shadow-lg:0 16px 48px rgba(0,0,0,.5);
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{scroll-behavior:smooth}
+body{font-family:var(--font);background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden;-webkit-font-smoothing:antialiased;transition:background .3s,color .3s}
+a{text-decoration:none;color:inherit}
+button{cursor:pointer;border:none;background:none;font-family:inherit}
+ul,ol{list-style:none}
+input,textarea,select{font-family:inherit;outline:none;border:none}
+h1{font-size:clamp(1.75rem,4vw,2.5rem);font-weight:800;line-height:1.15}
+h2{font-size:clamp(1.3rem,3vw,1.9rem);font-weight:700;line-height:1.2}
+h3{font-size:clamp(1.05rem,2.5vw,1.35rem);font-weight:600}
+p{line-height:1.65;color:var(--text-mid)}
+.container{width:100%;max-width:1160px;margin:0 auto;padding:0 24px}
+.section{padding:64px 0} .section-sm{padding:40px 0}
+
+/* ── BUTTONS ── */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:11px 24px;border-radius:50px;font-size:.9rem;font-weight:600;font-family:var(--font);transition:var(--tr);cursor:pointer;border:none;white-space:nowrap}
+.btn-primary{background:var(--primary);color:#fff;box-shadow:0 4px 16px rgba(42,124,111,.3)}
+.btn-primary:hover{background:var(--primary-dark);transform:translateY(-1px)}
+.btn-outline{background:transparent;color:var(--primary);border:2px solid var(--primary)}
+.btn-outline:hover{background:var(--primary);color:#fff}
+.btn-sm{padding:7px 16px;font-size:.82rem}
+.btn-danger{background:#ef4444;color:#fff}
+.btn-danger:hover{background:#dc2626}
+
+/* ── CARDS / BADGES ── */
+.card{background:var(--surface);border-radius:var(--radius-lg);box-shadow:var(--shadow-sm);border:1px solid var(--border);overflow:hidden;transition:var(--tr)}
+.card:hover{box-shadow:var(--shadow-md);transform:translateY(-2px)}
+.card-body{padding:24px}
+.badge{display:inline-flex;align-items:center;gap:5px;padding:4px 12px;border-radius:50px;font-size:.75rem;font-weight:700}
+.badge-primary{background:rgba(42,124,111,.12);color:var(--primary)}
+.badge-accent{background:rgba(232,168,56,.15);color:#b8791a}
+.badge-red{background:rgba(220,53,69,.1);color:#c0392b}
+.section-label{display:inline-flex;align-items:center;gap:8px;font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--primary);margin-bottom:8px}
+.section-label::before{content:'';width:20px;height:2px;background:var(--primary);border-radius:2px}
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes scaleIn{from{opacity:0;transform:scale(.94)}to{opacity:1;transform:scale(1)}}
+@keyframes slideRight{from{transform:translateX(-100%)}to{transform:translateX(0)}}
+.animate-fadeUp{animation:fadeUp .5s ease forwards}
+.animate-fadeIn{animation:fadeIn .4s ease forwards}
+.animate-scaleIn{animation:scaleIn .35s ease forwards}
+.stagger>*:nth-child(1){opacity:0;animation:fadeUp .5s ease forwards .05s}
+.stagger>*:nth-child(2){opacity:0;animation:fadeUp .5s ease forwards .12s}
+.stagger>*:nth-child(3){opacity:0;animation:fadeUp .5s ease forwards .19s}
+.stagger>*:nth-child(4){opacity:0;animation:fadeUp .5s ease forwards .26s}
+.stagger>*:nth-child(5){opacity:0;animation:fadeUp .5s ease forwards .33s}
+.stagger>*:nth-child(6){opacity:0;animation:fadeUp .5s ease forwards .40s}
+::-webkit-scrollbar{width:6px;height:6px}
+::-webkit-scrollbar-thumb{background:var(--border);border-radius:99px}
+
+/* ═══════════════════════════════════════════════
